@@ -1,0 +1,88 @@
+<!--https://github.com/AndreyGermanov/yolov8_inference_video_javascript-->
+<!--https://dev.to/andreygermanov/how-to-detect-objects-in-videos-in-a-web-browser-using-yolov8-neural-network-and-javascript-lfb-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>YOLOv8 Video Object detector</title>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      .wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      canvas {
+        width: 100%;
+        max-width: 800px;
+        text-align: center;
+      }
+      #btn-group {
+        display: none;
+        text-align: center;
+      }
+      .btn {
+        padding: 2rem 4rem;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      #loading {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Paper, Rock, Scissors Webcam Detection</h2>
+    <video controls style="display: none"></video>
+    <br />
+    <div class="wrap">
+      <div id="loading">
+        <div class="loader"></div>
+        <div>Loading model, please wait...</div>
+      </div>
+      <canvas></canvas>
+    </div>
+    <br />
+    <div id="btn-group">
+      <button id="play" class="btn">Start</button>&nbsp;
+      <button id="pause" class="btn">Pause</button>
+    </div>
+    <script src="object_detector.js" defer></script>
+  </body>
+</html>
